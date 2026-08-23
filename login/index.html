@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Bezart</title>
+  <meta name="description" content="Bezart IDでログインまたは新規登録">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <style>
+    .login-container {
+      min-height: calc(100vh - 44px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      background: linear-gradient(180deg, #ffffff 0%, #f5f5f7 100%);
+    }
+
+    .login-card {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 20px;
+      padding: 48px 40px;
+      width: 100%;
+      max-width: 480px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .login-header {
+      margin-bottom: 32px;
+    }
+
+    .login-logo {
+      width: 80px;
+      height: auto;
+      margin-bottom: 24px;
+    }
+
+    .login-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1d1d1f;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .login-subtitle {
+      font-size: 16px;
+      color: #86868b;
+      line-height: 1.5;
+    }
+
+    .login-button {
+      width: 100%;
+      padding: 16px 24px;
+      background: #0071e3;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 24px;
+      letter-spacing: -0.01em;
+    }
+
+    .login-button:hover {
+      background: #0077ed;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0, 113, 227, 0.3);
+    }
+
+    .login-info {
+      margin-top: 24px;
+      padding: 16px;
+      background: rgba(0, 113, 227, 0.05);
+      border-radius: 12px;
+      border: 1px solid rgba(0, 113, 227, 0.1);
+    }
+
+    .login-info p {
+      font-size: 14px;
+      color: #86868b;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .login-info a {
+      color: #0071e3;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .login-info a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 480px) {
+      .login-card {
+        padding: 32px 24px;
+      }
+
+      .login-title {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar Container -->
+  <div id="navbar-container"></div>
+
+  <!-- Login Content -->
+  <div class="login-container">
+    <div class="login-card">
+      <div class="login-header">
+        <img src="../assets/Bezart.png" alt="Bezart Studio Logo" class="login-logo">
+        <h1 class="login-title">Bezart ID</h1>
+        <p class="login-subtitle">Bezart IDでログインまたは新規登録</p>
+      </div>
+
+      <button onclick="loginWithBezart()" class="login-button">
+        Bezart ID でログイン / 新規登録
+      </button>
+
+      <div class="login-info">
+        <p>
+          認証は安全な外部サービスを通じて行われます。
+          詳しくは<a href="/docs/" target="_blank">ドキュメント</a>をご確認ください。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../js/navbar.js"></script>
+  <script src="../js/search.js"></script>
+  <script>
+    // Fix logo path for login page
+    document.addEventListener('DOMContentLoaded', () => {
+      const loginLogo = document.querySelector('.login-logo');
+      if (loginLogo) {
+        loginLogo.src = '../assets/Bezart.png';
+      }
+    });
+
+    // Bezart ID Authentication
+    const AUTH_WORKER_URL = 'https://bezart-auth.noppo5319.workers.dev';
+
+    function loginWithBezart() {
+      const currentRedirectUrl = window.location.href.split('?')[0];
+      window.location.href = `${AUTH_WORKER_URL}/?redirect=${encodeURIComponent(currentRedirectUrl)}`;
+    }
+
+    // Check for ticket in URL on page load
+    window.addEventListener('DOMContentLoaded', async () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const ticket = urlParams.get('ticket');
+
+      if (ticket) {
+        // Save ticket and clean URL
+        localStorage.setItem('bezart_ticket', ticket);
+        window.history.replaceState({}, document.title, window.location.pathname);
+        
+        // Show success message and redirect after delay
+        showLoginSuccess();
+      } else {
+        // Check for saved ticket
+        const savedTicket = localStorage.getItem('bezart_ticket');
+        if (savedTicket) {
+          // User is already logged in - redirect to home
+          window.location.href = '/';
+        }
+      }
+    });
+
+    function showLoginSuccess() {
+      const card = document.querySelector('.login-card');
+      card.innerHTML = `
+        <div class="login-header">
+          <img src="../assets/Bezart.png" alt="Bezart Studio Logo" class="login-logo">
+          <h1 class="login-title">ログイン成功</h1>
+          <p class="login-subtitle">Bezart IDへのログインが完了しました</p>
+        </div>
+        <div class="login-info">
+          <p>まもなくホームページへ移動します...</p>
+        </div>
+      `;
+      
+      // Redirect to home after 2 seconds
+      setTimeout(() => {
+        window.location.href = '/';
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
