@@ -1,58 +1,8 @@
 {
   "pages": [
-    {
-      "title": "Bezart Studio - Home",
-      "url": "/",
-      "description": "Bezart Studioの公式ホームページ。音楽制作ソフトウェアスタジオの紹介",
-      "keywords": ["bezart", "studio", "home", "music", "software", "top"]
-    },
-    {
-      "title": "Products",
-      "url": "/products/",
-      "description": "Bezart Studio製品ラインナップ",
-      "keywords": ["products", "lineup", "software", "daw"]
-    },
-    {
-      "title": "Bezart DAW",
-      "url": "/products/pro/",
-      "description": "Bezart DAW - 無料で使える音楽制作DAWソフトウェア",
-      "keywords": ["daw", "bezart daw", "digital audio workstation", "free", "music production"]
-    },
-    {
-      "title": "Features",
-      "url": "/products/features/",
-      "description": "Bezart DAWの機能詳細",
-      "keywords": ["features", "functions", "capabilities", "audio", "midi"]
-    },
-    {
-      "title": "Documentation",
-      "url": "/docs/",
-      "description": "Bezart Studioドキュメントトップ",
-      "keywords": ["docs", "documentation", "guide", "manual"]
-    },
-    {
-      "title": "Installation",
-      "url": "/docs/installation/",
-      "description": "Bezart DAWのインストール方法",
-      "keywords": ["install", "installation", "setup", "download", "daw"]
-    },
-    {
-      "title": "Usage",
-      "url": "/docs/usage/",
-      "description": "Bezart DAWの使用方法",
-      "keywords": ["usage", "how to", "tutorial", "guide", "daw"]
-    },
-    {
-      "title": "Support",
-      "url": "/support/",
-      "description": "サポートとお問い合わせ",
-      "keywords": ["support", "help", "contact", "faq"]
-    },
-    {
-      "title": "Login",
-      "url": "/login/",
-      "description": "Bezart IDログイン",
-      "keywords": ["login", "signin", "account", "auth", "bezart id"]
-    }
+    {"title": "Bezart Flow — 音楽を、前へ。", "url": "/", "description": "曲、リリース、ライブ、企画を再開しやすくするローカルファーストの音楽活動ワークスペース。", "keywords": ["bezart", "flow", "music workspace", "project"]},
+    {"title": "Bezart Flow — コンセプト", "url": "/#concept", "description": "音楽活動を、次のアクションから迷わず再開するための考え方。", "keywords": ["concept", "music activity", "local first"]},
+    {"title": "Bezart Flow — 機能", "url": "/#features", "description": "Today、プロジェクト、メモ、関連参照、横断検索、バックアップ。", "keywords": ["today", "projects", "notes", "backup"]},
+    {"title": "Bezart Flow — Local-first", "url": "/#privacy", "description": "データを端末内に保存し、アカウント登録を必須にしない設計。", "keywords": ["privacy", "local first", "desktop"]}
   ]
 }
