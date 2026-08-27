@@ -1,10 +1,7 @@
 {
   "name": "bezart",
   "version": "1.0.0",
-  "description": "Bezart Flow official product website",
-  "directories": {
-    "doc": "docs"
-  },
+  "description": "Bezart official website with a HeroUI-powered Bezart Flow product page",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",

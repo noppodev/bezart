@@ -1,8 +1,8 @@
 /**
- * Bezart official website — Forward Sleeve design
- * A record-sleeve editorial layout with ink navy, paper ivory, and Bezart Violet as a signal color.
+ * Bezart Flow product page — aligns to the official Bezart light, Apple-inspired system.
+ * HeroUI enhances the in-page cards and actions; the site-wide navbar is injected from ../../components/navbar.html.
  */
-import { useState } from "react";
+import { useEffect } from "react";
 import { Button, Card, Chip } from "@heroui/react";
 import {
   ArrowDownRight,
@@ -12,12 +12,10 @@ import {
   ChevronRight,
   FolderOpen,
   ListTodo,
-  Menu,
   Music2,
   Pin,
   Search,
   Sparkles,
-  X,
 } from "lucide-react";
 
 const workflow = [
@@ -85,31 +83,17 @@ function ProductWindow() {
 }
 
 function App() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const go = (id: string) => {
-    setMenuOpen(false);
-    window.setTimeout(() => scrollTo(id), 0);
-  };
+  useEffect(() => {
+    const navbarScript = document.createElement("script");
+    navbarScript.src = "../../js/navbar.js";
+    navbarScript.async = true;
+    document.body.appendChild(navbarScript);
+    return () => navbarScript.remove();
+  }, []);
 
   return (
     <div className="site-shell">
-      <header className="site-header">
-        <a className="brand" href="#top" onClick={(event) => { event.preventDefault(); go("top"); }} aria-label="Bezart Flow トップへ">
-          <img src="../../assets/Bezart.png" alt="Bezart" />
-          <span className="brand-divider" />
-          <span className="flow-word">Flow</span>
-        </a>
-        <nav className={`site-nav ${menuOpen ? "is-open" : ""}`} aria-label="ページ内ナビゲーション">
-          <button onClick={() => go("concept")}>コンセプト</button>
-          <button onClick={() => go("features")}>機能</button>
-          <button onClick={() => go("privacy")}>ローカルファースト</button>
-          <Button variant="primary" size="sm" onPress={() => go("get-flow")}><span>Flowを知る</span><ArrowDownRight size={15} /></Button>
-        </nav>
-        <button className="menu-trigger" type="button" onClick={() => setMenuOpen((open) => !open)} aria-label={menuOpen ? "メニューを閉じる" : "メニューを開く"} aria-expanded={menuOpen}>
-          {menuOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
-      </header>
+      <div id="navbar-container" />
 
       <main id="top">
         <section className="hero section-frame">

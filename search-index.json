@@ -1,64 +1,9 @@
 {
   "pages": [
-    {
-      "title": "Bezart Studio - Home",
-      "url": "/",
-      "description": "Bezart Studioの公式ホームページ。音楽制作ソフトウェアスタジオの紹介",
-      "keywords": ["bezart", "studio", "home", "music", "software", "top"]
-    },
-    {
-      "title": "Products",
-      "url": "/products/",
-      "description": "Bezart Studio製品ラインナップ",
-      "keywords": ["products", "lineup", "software", "daw"]
-    },
-    {
-      "title": "Bezart DAW",
-      "url": "/products/pro/",
-      "description": "Bezart DAW - 無料で使える音楽制作DAWソフトウェア",
-      "keywords": ["daw", "bezart daw", "digital audio workstation", "free", "music production"]
-    },
-    {
-      "title": "Bezart Flow",
-      "url": "/products/flow/",
-      "description": "音楽活動を、次のアクションから再開するローカルファーストのデスクトップ・ワークスペース",
-      "keywords": ["flow", "bezart flow", "music workspace", "project", "local first"]
-    },
-    {
-      "title": "Features",
-      "url": "/products/features/",
-      "description": "Bezart DAWの機能詳細",
-      "keywords": ["features", "functions", "capabilities", "audio", "midi"]
-    },
-    {
-      "title": "Documentation",
-      "url": "/docs/",
-      "description": "Bezart Studioドキュメントトップ",
-      "keywords": ["docs", "documentation", "guide", "manual"]
-    },
-    {
-      "title": "Installation",
-      "url": "/docs/installation/",
-      "description": "Bezart DAWのインストール方法",
-      "keywords": ["install", "installation", "setup", "download", "daw"]
-    },
-    {
-      "title": "Usage",
-      "url": "/docs/usage/",
-      "description": "Bezart DAWの使用方法",
-      "keywords": ["usage", "how to", "tutorial", "guide", "daw"]
-    },
-    {
-      "title": "Support",
-      "url": "/support/",
-      "description": "サポートとお問い合わせ",
-      "keywords": ["support", "help", "contact", "faq"]
-    },
-    {
-      "title": "Login",
-      "url": "/login/",
-      "description": "Bezart IDログイン",
-      "keywords": ["login", "signin", "account", "auth", "bezart id"]
-    }
+    {"title":"Bezart — Music activity, in motion.","url":"/","description":"音楽活動を進めやすくするソフトウェアをつくるブランド。","keywords":["bezart","music","software","brand"]},
+    {"title":"Products","url":"/products/","description":"Bezartのプロダクト一覧。","keywords":["products","software","bezart"]},
+    {"title":"Bezart Flow","url":"/products/flow/","description":"音楽活動を、次のアクションから再開するローカルファーストのデスクトップ・ワークスペース。","keywords":["flow","bezart flow","music workspace","project","local first"]},
+    {"title":"Support","url":"/support/","description":"サポートとお問い合わせ。","keywords":["support","help","contact","faq"]},
+    {"title":"Login","url":"/login/","description":"Bezart IDログイン。","keywords":["login","signin","account","auth","bezart id"]}
   ]
 }
