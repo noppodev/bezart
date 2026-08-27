@@ -2,7 +2,6 @@
  * Bezart Flow product page — aligns to the official Bezart light, Apple-inspired system.
  * HeroUI enhances the in-page cards and actions; the site-wide navbar is injected from ../../components/navbar.html.
  */
-import { useEffect } from "react";
 import { Button, Card, Chip } from "@heroui/react";
 import {
   ArrowDownRight,
@@ -83,18 +82,8 @@ function ProductWindow() {
 }
 
 function App() {
-  useEffect(() => {
-    const navbarScript = document.createElement("script");
-    navbarScript.src = "../../js/navbar.js";
-    navbarScript.async = true;
-    document.body.appendChild(navbarScript);
-    return () => navbarScript.remove();
-  }, []);
-
   return (
     <div className="site-shell">
-      <div id="navbar-container" />
-
       <main id="top">
         <section className="hero section-frame">
           <div className="hero-copy">

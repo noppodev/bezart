@@ -131,7 +131,7 @@
       <div class="login-info">
         <p>
           認証は安全な外部サービスを通じて行われます。
-          詳しくは<a href="/docs/" target="_blank">ドキュメント</a>をご確認ください。
+          ご不明な点は<a href="/support/">サポート</a>をご確認ください。
         </p>
       </div>
     </div>
@@ -173,8 +173,7 @@
         // Check for saved ticket
         const savedTicket = localStorage.getItem('bezart_ticket');
         if (savedTicket) {
-          // User is already logged in - redirect to home
-          window.location.href = '/';
+          showLoggedIn();
         }
       }
     });
@@ -196,6 +195,24 @@
       setTimeout(() => {
         window.location.href = '/';
       }, 2000);
+    }
+
+    function showLoggedIn() {
+      const card = document.querySelector('.login-card');
+      card.innerHTML = `
+        <div class="login-header">
+          <img src="../assets/Bezart.png" alt="Bezart Logo" class="login-logo">
+          <h1 class="login-title">ログイン済みです</h1>
+          <p class="login-subtitle">Bezart IDでログインしています。</p>
+        </div>
+        <a href="/" class="login-button" style="display:block; text-decoration:none;">ホームへ戻る</a>
+        <button onclick="logoutFromBezart()" class="login-button" style="background:#f5f5f7; color:#1d1d1f; margin-top:12px;">ログアウト</button>
+      `;
+    }
+
+    function logoutFromBezart() {
+      localStorage.removeItem('bezart_ticket');
+      window.location.reload();
     }
   </script>
 </body>
