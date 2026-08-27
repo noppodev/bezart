@@ -19,6 +19,12 @@
       "keywords": ["daw", "bezart daw", "digital audio workstation", "free", "music production"]
     },
     {
+      "title": "Bezart Flow",
+      "url": "/products/flow/",
+      "description": "音楽活動を、次のアクションから再開するローカルファーストのデスクトップ・ワークスペース",
+      "keywords": ["flow", "bezart flow", "music workspace", "project", "local first"]
+    },
+    {
       "title": "Features",
       "url": "/products/features/",
       "description": "Bezart DAWの機能詳細",
