@@ -4,6 +4,7 @@
  */
 import { Button, Card, Chip } from "@heroui/react";
 import {
+  ArrowDownToLine,
   ArrowDownRight,
   ArrowUpRight,
   CalendarDays,
@@ -51,6 +52,17 @@ function scrollTo(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
+const macosDownloadUrl = "/download/Bezart%20Flow_1.0.0_aarch64.dmg";
+
+function downloadMacApp() {
+  const download = document.createElement("a");
+  download.href = macosDownloadUrl;
+  download.download = "Bezart Flow_1.0.0_aarch64.dmg";
+  document.body.appendChild(download);
+  download.click();
+  download.remove();
+}
+
 function ProductWindow() {
   return (
     <div className="product-window" aria-label="Bezart Flowのアプリ画面イメージ">
@@ -91,8 +103,8 @@ function App() {
             <h1>音楽を編集するのではなく、<em>音楽を前へ。</em></h1>
             <p>曲、リリース、ライブ、企画。Bezart Flowは、音楽活動を再開しやすくするローカルファーストのデスクトップ・ワークスペースです。</p>
             <div className="hero-actions">
-              <Button variant="primary" size="lg" onPress={() => scrollTo("features")}><span>機能を見る</span><ArrowDownRight size={18} /></Button>
-              <Button variant="ghost" size="lg" onPress={() => scrollTo("concept")}><span>Flowの考え方</span><ArrowDownRight size={18} /></Button>
+              <Button variant="primary" size="lg" onPress={downloadMacApp}><span>macOS版をダウンロード</span><ArrowDownToLine size={18} /></Button>
+              <Button variant="ghost" size="lg" onPress={() => scrollTo("features")}><span>機能を見る</span><ArrowDownRight size={18} /></Button>
             </div>
             <div className="hero-meta"><span><b>macOS</b> Apple Silicon</span><span><b>v1.0</b> Local-first</span></div>
           </div>
@@ -126,7 +138,7 @@ function App() {
 
         <section className="privacy-section" id="privacy"><div className="section-frame privacy-grid"><div className="privacy-title"><div className="index-label light"><span>05</span><i /> LOCAL-FIRST</div><h2>あなたの活動は、<br /><em>あなたの端末に。</em></h2></div><div className="privacy-copy"><p>未公開音源、歌詞、企画メモ、活動の判断。大切な情報を、最初からアカウント登録やクラウド同期に預ける必要はありません。</p><p>Flowは端末内への保存を基本にします。ファイルやフォルダも、あなたが選んだ参照だけを扱います。</p><div className="privacy-points"><span><Check size={15} /> アカウント登録は必須ではありません</span><span><Check size={15} /> ファイルを自動で複製・送信しません</span><span><Check size={15} /> JSONバックアップで持ち出せます</span></div></div></div></section>
 
-        <section className="closing-section section-frame" id="get-flow"><div className="closing-label">BEZART FLOW<br /><span>FOR THE NEXT STEP</span></div><div className="closing-copy"><Chip color="accent" variant="soft" size="sm">macOS · Apple Silicon</Chip><h2>前回の続きから、<br /><em>始めよう。</em></h2><p>Bezart Flowは、音楽活動の途中にあるあなたの「次の一手」を、いつでも手元に残します。</p><div className="closing-actions"><Button variant="primary" size="lg" onPress={() => scrollTo("features")}><span>Flowの機能を見る</span><ChevronRight size={18} /></Button><Button variant="ghost" size="lg" onPress={() => scrollTo("top")}>トップへ戻る</Button></div></div><div className="closing-mark"><img src="../../assets/Bezart.png" alt="Bezart" /><span>FLOW<br />v1.0</span></div></section>
+        <section className="closing-section section-frame" id="get-flow"><div className="closing-label">BEZART FLOW<br /><span>FOR THE NEXT STEP</span></div><div className="closing-copy"><Chip color="accent" variant="soft" size="sm">macOS · Apple Silicon</Chip><h2>前回の続きから、<br /><em>始めよう。</em></h2><p>Bezart Flowは、音楽活動の途中にあるあなたの「次の一手」を、いつでも手元に残します。</p><div className="closing-actions"><Button variant="primary" size="lg" onPress={downloadMacApp}><span>macOS版をダウンロード</span><ArrowDownToLine size={18} /></Button><Button variant="ghost" size="lg" onPress={() => scrollTo("features")}>Flowの機能を見る</Button></div></div><div className="closing-mark"><img src="../../assets/Bezart.png" alt="Bezart" /><span>FLOW<br />v1.0</span></div></section>
       </main>
 
       <footer className="site-footer"><span>© 2026 BEZART</span><span>Music activity, in motion.</span><a href="#top" onClick={(event) => { event.preventDefault(); scrollTo("top"); }}><Search size={15} /> BACK TO TOP</a></footer>
